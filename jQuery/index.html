@@ -1,0 +1,50 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test App: jQuery/Vanilla JS</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/testApp.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+    <div class="row">
+
+      <div class="small-8 large-centered columns">
+    
+        <h1>Test App: jQuery/Vanilla JS</h1>
+
+        <form id="search-form">
+          <input type="text" name="artist-box" placeholder="Artist">
+          <input type="text" name="album-box" placeholder="Album">
+          <input type="submit" value="Submit" class="button">
+        </form>
+
+        <div class="results">
+
+          <div class="result" id="results-template">
+            <img>
+            <ul>
+              <li class="release-title"></li>
+              <li class="year"></li>
+              <li class="id"></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/swing.min.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <script src="js/test-app.js"></script>
+  </body>
+</html>

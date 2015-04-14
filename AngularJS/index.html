@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="testApp">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AngularJS: Test App</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/testApp.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+    <div class="row">
+
+      <div class="small-8 large-centered columns">
+    
+        <h1>Test App: AngularJS</h1>
+
+        <div ng-controller="SearchController">
+
+          <form id="search-form" ng-submit="formSubmit()">
+            <input type="text" name="artist-box" ng-model="search.artist" placeholder="Artist">
+            <input type="text" name="album-box" ng-model="search.title" placeholder="Album">
+            <input type="submit" value="Submit" class="button">
+          </form>
+
+        </div>
+
+        <div ng-controller="ResultsController">
+
+          <ul class="results">
+
+            <li class="result" ng-repeat="release in cards" swing-card>
+              <img ng-src="{{release.thumb}}">
+              <ul>
+                <li class="release-title">{{release.title}}</li>
+                <li class="year">{{release.year}}</li>
+                <li class="id">{{release.id}}</li>
+              </ul>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/angular.min.js"></script>
+    <script src="js/vendor/swing.min.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <script src="js/test-app.js"></script>
+  </body>
+</html>
