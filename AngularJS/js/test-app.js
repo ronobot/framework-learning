@@ -17,7 +17,10 @@ testApp.controller('SearchController', function ($scope, discogsAPIservice, upda
         title: null
     };
 
+    $scope.ganglionReef = window.ganglionReef;
+
     $scope.formSubmit = function() {
+        /*
         // console.log("formed");
         discogsAPI.getReleases($scope).success(function(response,status) {
             // console.log("success",response.data);
@@ -25,6 +28,9 @@ testApp.controller('SearchController', function ($scope, discogsAPIservice, upda
         }).error(function(response,status) {
             // console.log("error",response,status);
         });;
+        */
+        console.log("original: ",$scope.ganglionReef);
+        updateResults.update($scope.ganglionReef);
     };
 
 });
@@ -38,18 +44,14 @@ testApp.controller('ResultsController', function ($scope, $filter, updateResults
     $scope.results = [];
     $scope.cards = [];
 
+    $scope.demolitionPlot = window.demolitionPlot;
+
+    $scope.cards = $scope.demolitionPlot;
+
     $scope.$on("update", function (event) {
         // $scope.results = updateResults.data;
-        /*
-        console.log($scope.results,updateResults.data);
-        $scope.newResults = $filter('orderBy')(updateResults.data,'',true);
-        console.log("REVERS'D:",$scope.newResults);
-        jQuery.merge($scope.results,updateResults.data);
-        // console.log($scope.results);
-        // $scope.cards = updateResults.data.reverse().concat($scope.results.reverse());
-        $scope.cards = $scope.results;
-        console.log($scope.cards);
-        */
+        // $scope.cards = updateResults.data;
+        jQuery.merge($scope.cards,updateResults.data);
     });
 });
 
@@ -80,13 +82,7 @@ testApp.factory("updateResults", function ($rootScope) {
     resultsService.data = [];
 
     resultsService.update = function(r) {
-        console.log("service:",r);
-        r.reverse();
-        console.log("reverse'd:",r);
-        r.push("CHANG'D");
-        console.log("changed:",r);
-        r = [];
-        console.log("emptied:",r);
+        // console.log("service:",r);
         this.data = r;
         $rootScope.$broadcast("update");
     };
@@ -116,4 +112,4 @@ testApp.directive('swingCard', function (swingPlugin) {
             swingPlugin.stack.createCard(element[0]);
         }
     }
-})
+});

@@ -31,7 +31,9 @@
           <ul class="results">
 
             <li class="result" ng-repeat="release in cards" swing-card>
+              <!--
               <img ng-src="{{release.thumb}}">
+              -->
               <ul>
                 <li class="release-title">{{release.title}}</li>
                 <li class="year">{{release.year}}</li>
@@ -54,6 +56,7 @@
     <script>
       $(document).foundation();
     </script>
+    <script src="js/test-data.js"></script>
     <script src="js/test-app.js"></script>
   </body>
 </html>
