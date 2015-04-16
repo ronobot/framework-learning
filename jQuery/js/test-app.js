@@ -25,6 +25,7 @@ var testApp = function() {
         //
         e.preventDefault();
         console.log("search time ",form);
+        /*
 
         $.ajax({
             url: 'https://api.discogs.com/database/search',
@@ -44,6 +45,8 @@ var testApp = function() {
             }
 
         });
+        */
+        processResults(window.ganglionReef);
     };
 
     var processResults = function(r) {
@@ -53,7 +56,7 @@ var testApp = function() {
         for (var i = 0, len = r.length; i < len; i++) {
             //
             var thisEl = el.cloneNode(true);
-            thisEl.querySelector("img").src = r[i].thumb;
+            // thisEl.querySelector("img").src = r[i].thumb;
             thisEl.querySelector(".release-title").innerHTML = r[i].title;
             thisEl.querySelector(".year").innerHTML = r[i].year;
             thisEl.querySelector(".id").innerHTML = r[i].id;
@@ -79,7 +82,9 @@ var testApp = function() {
             // console.log(targetElement, i, cards.length);
             container.appendChild(targetElement);
             // container.insertBefore(targetElement,container.firstChild);
+            // debugger;
             stack.createCard(targetElement);
+            // debugger;
         });
         cards = [];
     };
@@ -89,7 +94,7 @@ var testApp = function() {
         console.log("cards: ",cards);
         stack = gajus.Swing.Stack();
         // console.log("stack: ",stack);
-        cards.reverse().forEach(function (targetElement, i) {
+        cards.forEach(function (targetElement, i) {
             // console.log(targetElement, i, cards.length);
             stack.createCard(targetElement);
         });
@@ -102,6 +107,7 @@ var testApp = function() {
     var init = function() {
         events()
         prepareDeck();
+        processResults(window.demolitionPlot);
     };
 
     return {
