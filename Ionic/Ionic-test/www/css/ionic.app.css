@@ -7605,15 +7605,16 @@ a.button {
 
 .results {
   position: relative;
-  height: 350px; }
+  height: 400px; }
 
 .result.card {
   position: absolute;
-  width: 100%;
-  height: 300px; }
+  width: 100%; }
+  .result.card img {
+    max-width: 100%; }
   .result.card .item-body {
     z-index: auto; }
-  .result.card.select {
+  .result.card.select .item-body {
     background: #A1FFBD; }
-  .result.card.reject {
+  .result.card.reject .item-body {
     background: #FF8795; }

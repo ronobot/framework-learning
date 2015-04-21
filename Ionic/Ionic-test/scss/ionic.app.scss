@@ -23,20 +23,26 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 .results {
     position: relative;
-    height: 350px;
+    height: 400px;
 }
 .result.card {
     position:absolute;
     width: 100%;
-    height: 300px;
+    img {
+        max-width: 100%;
+    }
     .item-body {
         z-index: auto;
     }
     &.select {
-        background: #A1FFBD;
+        .item-body {
+            background: #A1FFBD;
+        }
     }
     &.reject {
-        background: #FF8795;
+        .item-body {
+            background: #FF8795;
+        }
     }
 }
 

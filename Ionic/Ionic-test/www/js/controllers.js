@@ -1,7 +1,9 @@
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, swingPlugin) {
-  $scope.cards = window.demolitionPlot;
+
+  // $scope.cards = window.demolitionPlot;
+  $scope.cards = window.photos;
 
   $scope.undo = function() {
       // console.log(swingPlugin.lastThrow);

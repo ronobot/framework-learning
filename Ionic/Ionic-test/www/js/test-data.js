@@ -1,3 +1,55 @@
+
+var photos = [
+    {
+        "img": "img/photos/IMG_3913.jpg"
+    },
+    {
+        "img": "img/photos/IMG_3918.jpg"
+    },
+    {
+        "img": "img/photos/IMG_4059.jpg"
+    },
+    {
+        "img": "img/photos/IMG_4521.jpg"
+    },
+    {
+        "img": "img/photos/IMG_4662.jpg"
+    },
+    {
+        "img": "img/photos/IMG_4755.jpg"
+    },
+    {
+        "img": "img/photos/IMG_4819.jpg"
+    },
+    {
+        "img": "img/photos/IMG_4874.jpg"
+    },
+    {
+        "img": "img/photos/IMG_5032.jpg"
+    },
+    {
+        "img": "img/photos/IMG_4887.jpg"
+    },
+    {
+        "img": "img/photos/IMG_5459.jpg"
+    },
+    {
+        "img": "img/photos/IMG_5532.jpg"
+    },
+    {
+        "img": "img/photos/IMG_5567.jpg"
+    },
+    {
+        "img": "img/photos/IMG_5675.jpg"
+    },
+    {
+        "img": "img/photos/IMG_5795.jpg"
+    },
+    {
+        "img": "img/photos/IMG_5871.jpg"
+    }
+];
+
 var demolitionPlot = [
     {
         "style ": ["Lo - Fi ", "Indie Rock "],
