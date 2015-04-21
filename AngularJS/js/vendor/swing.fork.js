@@ -1498,6 +1498,7 @@
                 var e = t.parentNode;
                 e.removeChild(t);
                 e.insertBefore(t,e.firstChild);
+                console.log("card insert");
             }, i.throwOutConfidence = function(t, e) {
                 return Math.min(Math.abs(t) / e.offsetWidth, 1)
             }, i.isThrowOut = function(t, e, n) {

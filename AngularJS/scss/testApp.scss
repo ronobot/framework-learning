@@ -1,5 +1,6 @@
 
 .results {
+    height: 300px;
     margin-left: 0;
     padding-left: 0;
     list-style: none;
@@ -25,8 +26,15 @@
             font-size: 0.8em;
         }
     }
+    &.select {
+        background: #A1FFBD;
+    }
+    &.reject {
+        background: #FF8795;
+    }
 }
 
 .template {
     display: none;
 }
+

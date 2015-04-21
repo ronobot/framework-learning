@@ -35,7 +35,7 @@ testApp.controller('SearchController', function ($scope, discogsAPIservice, upda
 
 });
 
-testApp.controller('ResultsController', function ($scope, $filter, updateResults) {
+testApp.controller('ResultsController', function ($scope, $filter, updateResults, swingPlugin) {
     $scope.results = [{
         thumb: "http://f1.bcbits.com/img/a1111283447_2.jpg",
         title: "White Spaces",
@@ -53,6 +53,22 @@ testApp.controller('ResultsController', function ($scope, $filter, updateResults
         // $scope.cards = updateResults.data;
         jQuery.merge($scope.cards,updateResults.data);
     });
+
+    $scope.undo = function() {
+        // console.log(swingPlugin.lastThrow);
+        // swingPlugin.stack.getCard(swingPlugin.lastThrow).throwIn(100,100);
+        var len = swingPlugin.thrown.length;
+        if (len > 0) {
+            var obj = swingPlugin.thrown.pop();
+            var el = obj.el;
+            var dir;
+            obj.dir == 1 ? dir = 100 : dir = -100;
+            var card = swingPlugin.stack.getCard(el);
+            console.log(el.getAttribute.style);
+            swingPlugin.stack.getCard(el)._trigger('_panstart');
+            swingPlugin.stack.getCard(el).throwIn(dir,0);
+        }
+    }
 });
 
 testApp.factory('discogsAPIservice', function ($http) {
@@ -94,6 +110,38 @@ testApp.factory("swingPlugin", function () {
     var plugin = {};
     plugin.cards = [];
     plugin.stack = gajus.Swing.Stack();
+    plugin.lastThrow = null;
+    plugin.thrown = [];
+
+    plugin.stack.on('dragstart',function() {
+        console.log("card pickup");
+    });
+    plugin.stack.on('dragmove',function(e) {
+        // console.log(e);
+        //
+        if (e.throwDirection == 1 && !angular.element(e.target).hasClass("select")) {
+            angular.element(e.target).removeClass("reject")
+            angular.element(e.target).addClass("select");
+        } else if (e.throwDirection == -1 && !angular.element(e.target).hasClass("reject")) {
+            angular.element(e.target).removeClass("select")
+            angular.element(e.target).addClass("reject");
+        }
+    });
+    plugin.stack.on('dragend',function(e) {
+        //
+    })
+    plugin.stack.on('throwout',function(e) {
+        console.log("throw ouuut");
+        plugin.lastThrow = e.target;
+        plugin.thrown.push({el:e.target,dir:e.throwDirection});
+    });
+    plugin.stack.on('throwin',function(e) {
+        console.log("throw in");
+        angular.element(e.target).removeClass("reject").removeClass("select");
+    });
+    plugin.stack.on('throwinend',function(e) {
+        console.log("throw in end");
+    });
 
     // console.log(plugin);
 
